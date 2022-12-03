@@ -3,8 +3,8 @@ import tensorflow as tf
 from tensorflow import keras
 from tensorflow.keras.applications import vgg19
 
-base_image_path = "crispy-broccoli\\cnn_data\\0.jpg"
-style_path = "crispy-broccoli\\cnn_data\\afremov\\afremov\\"
+base_image_path = "crispy-broccoli\\data\\0.jpg"
+style_path = "crispy-broccoli\\data\\afremov\\afremov\\"
 result_prefix = "cnn_61stack"
 
 # Dimensions of the generated picture.
@@ -142,5 +142,5 @@ for j in range(61):
         if i % 100 == 0:
             print("Iteration %d: loss=%.2f" % (i, loss))
     img = deprocess_image(output_image.numpy())
-    fname = "crispy-broccoli\\cnn_data\\test_result\\"+ result_prefix + str(j)+"_at_iteration_%d.png" % i
+    fname = "crispy-broccoli\\data\\test_result\\"+ result_prefix + str(j)+"_at_iteration_%d.png" % i
     keras.preprocessing.image.save_img(fname, img)
